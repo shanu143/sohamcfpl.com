@@ -1,0 +1,547 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 5, 2015, 2:13:20 PM
+    Author     : shanu
+*/
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+
+.header img {
+    padding-left: 50px;
+    width: 280px;
+    height: 100px;
+    background: #fff;
+    padding-top: 30px;
+    margin-top: 0px;
+	
+}
+
+.header {
+	background:#fff;
+	height:130px;
+}
+
+.header h1 {
+    position: relative;
+    top: -10px;
+    left: 190px;
+}
+
+.header h2 {
+    position: relative;
+    left: 150px;
+    margin: -50px 0px 0px;
+}
+
+
+#nav{
+    position: absolute;
+    top: 90px;
+    right: 180px;
+    list-style:none;
+    font-weight:normal;
+	font-size:15px;
+	font-family: Verdana, Geneva, sans-serif;
+    Bring the nav above everything else--uncomment if needed.
+    position:relative;
+    z-index:5;
+	
+}
+
+#nav li{
+    float:left;
+    margin-right:20px;
+    position:relative;
+}
+#nav a{
+    display:block;
+    padding:5px;
+    color:#000;
+    background:	#d6d6d6;
+    text-decoration:none;
+
+}
+#nav a:hover{
+    color:#000;
+    background:	#d6d6d6;
+    /*text-decoration:underline;*/
+}
+
+/*--- DROPDOWN ---*/
+#nav ul{
+    background:#dcdcdc; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+    background:#00bfff; /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+    list-style:none;
+    position:relative;
+    left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+}
+
+#nav ul li{
+    /*padding-top:1px;  Introducing a padding between the li and the a give the illusion spaced items */
+    float:none;
+    position:relative;
+    z-index:1000;
+}
+
+#nav ul a{
+    white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+}
+#nav li:hover ul{ /* Display the dropdown on hover */
+    left:0; /* Bring back on-screen when needed */
+}
+#nav li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+    background:#fcfcfc;
+    /*text-decoration:underline;*/
+}
+#nav li:hover ul a{ /* The persistent hover state does however create a global style for links even before they're hovered. Here we undo these effects. */
+    text-decoration:none;
+}
+#nav li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
+    background:#bfbfbf;
+}
+
+#nav ul{
+    background:#dcdcdc; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+    background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+    list-style:none;
+    position:absolute;
+    left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+}
+
+#nav ul li{
+    /* padding-top:1px; Introducing a padding between the li and the a give the illusion spaced items */
+    float:none;
+    position:relative;
+    z-index:1000;
+}
+#nav ul a{
+    white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
+}
+#nav li:hover ul{ /* Display the dropdown on hover */
+    left:0; /* Bring back on-screen when needed */
+}
+#nav li:hover a{ /* These create persistent hover states, meaning the top-most link stays 'hovered' even when your cursor has moved down the list. */
+    background:#Blue;
+    /*text-decoration:underline;*/
+}
+*, :before, :after {
+    box-sizing: border-box;
+}
+@media only screen and (max-width: 300px){
+    #nav { 
+    width: 10px;
+    height: 10px; 
+}
+}
+
+.separator {
+    height: 10px;
+    background-color: #2E9AFE;
+    position: relative;
+    margin: 60px 0px 0px;
+	margin-top: 0px;
+}
+
+.separator.right:before,
+.separator.right:after,
+.separator.left:before, 
+.separator.left:after {
+    content: "";
+    position: absolute;
+    right: 5px;
+    width: 80px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    border-width: 0 0 10px 10px;
+}
+
+.separator.right:after {
+    border-bottom-color: #FF0040;
+    right: 0;
+}
+
+.separator.left:before,
+.separator.left:after {
+    border-width: 0 10px 10px 0;
+    left: 5px;
+}
+
+.separator.left:after {
+    border-bottom-color: #FF0040;
+    left: 0;
+}
+
+.scrollable {
+    height: 0px;
+    width: auto%;
+    margin: 0 auto;
+    /*border: 1px dashed black;   
+}
+
+.fixed {
+  position: fixed;
+}
+
+.header{
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  /*background-color: #000;*/
+}
+
+
+#client div {
+    color: #fff;
+    font-size: 4em;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+    margin-top: 10px;
+    
+}
+
+#client div {
+    margin: 0px 500px 0px;
+}
+
+#Our Clients {
+    border-bottom-color: #FF0040;
+
+}
+
+
+.fixed {
+  position: fixed;
+}
+
+
+.footer-distributed{
+	background-color: #fff;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: 12px sans-serif;
+	color:#1874cd;
+	padding: 10px 50px;
+	margin-top: 0px;
+	font-weight:normal;
+	}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h2{
+	color: blue;
+	font-size:20px;
+	margin: 30px 0px 0px;
+	
+}
+
+.footer-distributed h3 span{
+	color: #000;
+	
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #000;
+	margin: 20px 0 12px;
+	padding: 0;
+	font-size:15px;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #000;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color: #33383b;
+	color: #1874cd;
+	font-size: 11px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 0px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 11px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: block;
+	color: #000;
+	vertical-align: middle;
+	margin:0;
+	font-weight:normal;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:11px;
+	
+}
+
+.footer-distributed .footer-center p a{
+	color:  #000;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+
+.footer-distributed .footer-right span{
+	display: block;
+	font-size: 11px;
+	font-weight: normal;
+	line-height:20px;
+	margin-top:10px;
+	
+}
+
+.footer-distributed .footer-right i{
+	background-color: #33383b;
+	color: #1874cd;
+	font-size: 11px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 0px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-right p{
+	display: block;
+	color: #000;
+	vertical-align: middle;
+	margin:0;
+	font-weight:normal;
+}
+
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
+}
+
+#fixedfooter {
+   position:fixed;
+   right:0px;
+   text-align:right;
+   bottom:0px;
+   height:20px;
+   width:100%;
+   background:#f2e8e8;
+   color:black;
+}
+
+
+.centerBlock {
+ display: center;
+ margin-right: auto;
+ margin-left:auto;
+}       
+
+#content {
+	position: relative;
+    width: 49%;
+	float: left;
+    height: 300px;
+	background-color: #3399CC;
+	text-align:center;
+	
+}
+
+#middle {
+	width: 50%; /* Account for margins + border values */
+	background-color: #3399CC;
+    float: right;
+	height: 300px;
+	text-align:center;
+}
+
+#sidebar {
+	width: 33.2%;
+	position: relative;
+	float: left;
+    background-color: #3399CC;
+    height: 400px;
+}
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+	
+	#content {
+		width: 41%;
+		padding: 1% 4%;
+	}
+	#middle {
+		width: 41%;
+		padding: 1% 4%;
+		margin: 0px 0px 5px 5px;
+		float: right;
+	}
+	
+	#sidebar {
+		clear: both;
+		padding: 1% 4%;
+		width: auto;
+		
+	}
+}
+
+/* for 700px or less */
+@media screen and (max-width: 600px) {
+	#middle {
+		width: auto;
+		float: none;
+		margin-left: 0px;
+	}
+	
+	#sidebar {
+		width: auto;
+		float: none;
+	}
+
+}
+
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+
+	h1 {
+		font-size: 2em;
+	}
+	#sidebar {
+		display: none;
+	}
+
+}
+
+.form{
+width:70%;
+margin:4% 50%;
+}
+
+div.horizontalRule
+{
+clear:both;
+width:150%;
+background-color:#000;
+height:3px;
+margin-top:-2px;
+margin-bottom:10px;
+
+}
+
+.body-center h2{
+	color: red;
+	font-size:20px;
+	margin: 30px 0px 0px;
+	
+}
+.body-right h2{
+	color: red;
+	font-size:20px;
+	margin: 30px 0px 0px;
+	
+}
+
+div.horizontalRuler
+{
+clear:both;
+width:150%;
+background-color:#000;
+height:3px;
+margin-top:10px;
+margin-bottom:10px;
+
+}
+
+.tracking h2{
+	color: red;
+	font-size:30px;
+	text-align:center;
+	
+}.tracking p{
+
+	font-size:25px;
+	text-align:center;
+	
+}
+
+.address img {
+	margin:30px 200px 30px;
+	
+}
